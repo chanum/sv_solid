@@ -9,6 +9,6 @@ class subtraction extends math_operation;
 endclass : subtraction
 
 // then in the test module just add this for the new operation
-MathOperation sub = new subtraction();
-$display("10 - 5 = %0d", calc.performOperation(sub, 10, 5));
+math_operation sub = new subtraction();
+$display("10 - 5 = %0d", calc.perform_operation(sub, 10, 5));
 

@@ -40,8 +40,8 @@ module test;
     math_operation add = new addition();
     math_operation mult = new multiplication();
 
-    $display("10 + 5 = %0d", calc.performOperation(add, 10, 5));
-    $display("10 * 5 = %0d", calc.performOperation(mult, 10, 5));
+    $display("10 + 5 = %0d", calc.perform_operation(add, 10, 5));
+    $display("10 * 5 = %0d", calc.perform_operation(mult, 10, 5));
   end
 
 endmodule : test
