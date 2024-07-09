@@ -17,16 +17,16 @@ interface memory_if;
     input address, data, write_enable, read_enable,
     output data
   );
-endinterface
+endinterface : memory_if
 
 module write_only_module(memory_if.writer mem);
-  // Módulo que solo escribe en memoria
+  // module than only writes memory
 endmodule
 
 module read_only_module(memory_if.reader mem);
-  // Módulo que solo lee de memoria
+  // module than only reads memory
 endmodule
 
 module memory_module(memory_if.memory mem);
-  // Implementación de la memoria
+  // memory implementation
 endmodule

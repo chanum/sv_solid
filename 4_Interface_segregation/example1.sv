@@ -1,4 +1,4 @@
-// En lugar de una interfaz grande y general
+// general and big interface
 interface big_memory_if;
   logic [31:0] address;
   logic [31:0] write_data;
@@ -7,9 +7,11 @@ interface big_memory_if;
   logic read_enable;
   logic reset;
   logic clock;
-endinterface
+endinterface : big_memory_if
 
-// Podemos segregar en interfaces más específicas
+------
+
+// small and specific interfaces
 interface memory_write_if;
   logic [31:0] address;
   logic [31:0] write_data;
@@ -27,19 +29,19 @@ interface clock_if;
   logic reset;
 endinterface
 
-// Uso de las interfaces segregadas
-module memory_controller(
+// use of segregated interfaces
+module memory_controller (
   memory_write_if.slave write_if,
   memory_read_if.slave read_if,
   clock_if.slave clk_if
 );
-  // Implementación del controlador
+  // controller implementation 
 endmodule
 
-module ram(
+module ram (
   memory_write_if.slave write_if,
   memory_read_if.slave read_if,
   clock_if.slave clk_if
 );
-  // Implementación de la RAM
+  // ram implementation
 endmodule

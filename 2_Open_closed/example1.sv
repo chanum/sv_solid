@@ -6,9 +6,9 @@ interface bus_if;
 endinterface : bus_if
 
 module memory(bus_if bus);
-  // Implementación de memoria
+  // memory implementation
 endmodule : memory
 
 module cache(bus_if bus);
-  // Implementación de cache
+  // memory implementation
 endmodule : cache

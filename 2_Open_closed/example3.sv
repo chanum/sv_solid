@@ -1,7 +1,8 @@
+
 class base_transaction;
-  // Propiedades y métodos comunes
+  // common properties and methods
 endclass
 
 class extended_transaction extends base_transaction;
-  // Propiedades y métodos adicionales
+  // additional properties and methods
 endclass

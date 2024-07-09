@@ -1,33 +1,48 @@
-virtual class WritableMemory;
+virtual class memory;
   pure virtual function void write(bit [31:0] addr, bit [31:0] data);
-endclass
-
-virtual class ReadableMemory;
   pure virtual function bit [31:0] read(bit [31:0] addr);
-endclass
-
-virtual class ResetableMemory;
   pure virtual function void reset();
-endclass
+endclass : memory
 
-class RAM extends WritableMemory, ReadableMemory, ResetableMemory;
-  // Implementación completa
-endclass
+class RAM extends memory;
+  bit [31:0] mem [bit [31:0]];  // memory
 
-class ROM extends ReadableMemory;
-  // Implementación solo de lectura
-endclass
+  virtual function void write(bit [31:0] addr, bit [31:0] data);
+    mem[addr] = data;
+  endfunction
+  
+  virtual function bit [31:0] read(bit [31:0] addr);
+    return mem[addr];
+  endfunction
+  
+  virtual function void reset();
+    mem.delete();
+  endfunction
+endclass : RAM
+
+class ROM extends memory;
+  bit [31:0] mem [bit [31:0]];  // memory read only
+
+  virtual function void write(bit [31:0] addr, bit [31:0] data);
+    // No op
+  endfunction
+  
+  virtual function bit [31:0] read(bit [31:0] addr);
+    return mem[addr];
+  endfunction
+  
+  virtual function void reset();
+    //No op
+  endfunction
+endclass : ROM
 
 class TestBench;
-  function void test_write(WritableMemory mem);
-    // Prueba de escritura
-  endfunction
-  
-  function void test_read(ReadableMemory mem);
-    // Prueba de lectura
-  endfunction
-  
-  function void test_reset(ResetableMemory mem);
-    // Prueba de reset
-  endfunction
-endclass
+
+  function void test_memory(Memory mem);
+    mem.write(32'h1000, 32'hABCD1234);
+    $display("Read: %h", mem.read(32'h1000));
+    mem.reset();
+  endfunction : test_memory
+
+endclass : TestBench
+

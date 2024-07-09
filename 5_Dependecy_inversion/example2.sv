@@ -1,37 +1,37 @@
 
-virtual class MemoryModel;
+virtual class memory_model;
   pure virtual function void write(bit [31:0] addr, bit [31:0] data);
   pure virtual function bit [31:0] read(bit [31:0] addr);
-endclass
+endclass : memory_model
 
-class RAMModel extends MemoryModel;
+class ram_model extends memory_model;
   virtual function void write(bit [31:0] addr, bit [31:0] data);
-    // Implementación específica para RAM
+    // write implementation for cache RAM
   endfunction
   
   virtual function bit [31:0] read(bit [31:0] addr);
-    // Implementación específica para RAM
+    // read implementation for RAM
   endfunction
-endclass
+endclass : ram_model
 
-class CacheModel extends MemoryModel;
+class cache_model extends memory_model;
   virtual function void write(bit [31:0] addr, bit [31:0] data);
-    // Implementación específica para caché
+    // write implementation for cache
   endfunction
   
   virtual function bit [31:0] read(bit [31:0] addr);
-    // Implementación específica para caché
+    // read implementation for cache
   endfunction
-endclass
+endclass : cache_model
 
 class TestBench;
-  MemoryModel mem;
+  memory_model mem;
   
-  function new(MemoryModel m);
+  function new(memory_model m);
     this.mem = m;
   endfunction
   
   task run();
-    // Usar mem.read() y mem.write() sin conocer la implementación específica
+    // we can use mem.read() or mem.write() without known the specific implementation
   endtask
-endclass
+endclass : TestBench

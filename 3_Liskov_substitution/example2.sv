@@ -5,13 +5,13 @@ interface memory_if;
   
   modport master (output address, data, read, write);
   modport slave (input address, data, read, write);
-endinterface
+endinterface : memory_if
 
 module base_memory(memory_if.slave mem);
-  // Implementación básica de memoria
+  // implementation base memory
 endmodule
 
 module cache_memory(memory_if.slave mem);
-  // Implementación de memoria caché
+  // implementation cache memory
 endmodule
 

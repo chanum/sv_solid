@@ -1,20 +1,20 @@
-class MemoryModel;
+class memory_model;
   virtual function void write(bit [31:0] addr, bit [31:0] data);
-    // Implementación base
+    // base implementation
   endfunction
   
   virtual function bit [31:0] read(bit [31:0] addr);
-    // Implementación base
+    // base implementation
   endfunction
-endclass
+endclass : memory_model
 
-class CacheMemoryModel extends MemoryModel;
+class cache_memory_model extends memory_model;
   virtual function void write(bit [31:0] addr, bit [31:0] data);
-    // Implementación específica de caché
+    // specific implementation of write
   endfunction
   
   virtual function bit [31:0] read(bit [31:0] addr);
-    // Implementación específica de caché
+     // specific implementation of read
   endfunction
-endclass
+endclass : cache_memory_model
 

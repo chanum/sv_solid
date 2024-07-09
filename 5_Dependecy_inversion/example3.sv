@@ -14,7 +14,7 @@ module generic_memory #(
       memory[addr] <= write_data;
     read_data <= memory[addr];
   end
-endmodule
+endmodule : generic_memory
 
 module top;
   logic clk;
@@ -31,4 +31,4 @@ module top;
     .write_en(write_en),
     .read_data(data64)
   );
-endmodule
+endmodule : top
