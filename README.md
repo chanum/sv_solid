@@ -18,3 +18,9 @@ Software engineer and instructor, Robert C. Martin, introduced the collection of
 
 
 From: https://en.wikipedia.org/wiki/SOLID
+
+
+## Article Posted in Emtech
+
+[SOLID Principles in SystemVerilog for Verification](https://www.emtechsa.com/post/solid-principles-in-systemverilog-for-verification)
+
